@@ -1,0 +1,43 @@
+{% extends 'index.html'%}
+{% block 'title' %}
+Add Magasin
+{%endblock%}
+{% block 'css' %}
+<style type="text/css">
+
+</style>
+{%endblock%}
+{% block 'content' %}
+
+<div class="container mt-5">
+    <h1>MAGASIN</h1>
+    <div class="row justify-content-center align-items-center">
+        <table class="table table-striped my-5">
+            <div class="text-center">
+                <a href="add_magasin"><button class="btn btn-primary">AJOUTER</button></a>
+            </div>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Pays</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for mag in magasins %}
+            <tr>
+                <td>{{mag.id}}</td>
+                <td>{{mag.name}}</td>
+                <td>{{mag.country}}</td>
+                <td class="w-25">
+                    <a href="update_magasin/{{mag.id}}" class="btn btn-link"><button class="btn btn-warning">Update</button></a>
+                    <a href="profil_magasin/{{mag.id}}" class="btn btn-link "><button class="btn btn-danger">Profil</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+      </table>
+    </div>
+</div>
+{%endblock%}

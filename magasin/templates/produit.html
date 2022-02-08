@@ -1,0 +1,41 @@
+{% extends 'index.html'%}
+{% block 'title' %}
+Add prodasin
+{%endblock%}
+{% block 'css' %}
+<style type="text/css">
+
+</style>
+{%endblock%}
+{% block 'content' %}
+<div class="container mt-5">
+    <h1>PRODUIT</h1>
+    <div class="row justify-content-center align-items-center">
+        <table class="table table-striped my-5">
+            <div class="text-center">
+                <a href="add_produit"><button class="btn btn-primary">AJOUTER</button></a>
+            </div>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Pays</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for prod in produits %}
+            <tr>
+                <td>{{prod.id}}</td>
+                <td>{{prod.name}}</td>
+                <td>{{prod.country}}</td>
+                <td class="w-25">
+                    <a href="update_produit/{{prod.id}}" class="btn btn-link"><button class="btn btn-warning">Update</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+      </table>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,60 @@
+{% extends 'index.html'%}
+{% block 'title' %}
+Add magasin
+{%endblock%}
+{% block 'css' %}
+<style type="text/css">
+
+</style>
+{%endblock%}
+{% block 'content' %}
+<div class="container mt-5">
+    <h1 class="text-center mb-5">MAGASIN PROFIL</h1>
+    <div class="row justify-content-center align-items-center">
+    {% if len == 0 %}
+        <p>Creer un profil</p>
+
+        <form action="" method="POST" novalidate>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+    {% endif%}
+
+    {% if len > 0 %}
+        <table class="table table-striped my-5">
+            <div class="text-center">
+                <a href="update_profile_magasin/{{idmagp}}"><button class="btn btn-primary">MODIFIER</button></a>
+            </div>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Pays</th>
+                <th>Creation</th>
+                <th>Modification</th>
+                <th>Email</th>
+                <th>Num tel</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for mag in magasin %}
+            <tr>
+                <td>{{mag.id}}</td>
+                <td>{{mag.name}}</td>
+                <td>{{mag.country}}</td>
+                <td>{{mag.created_at}}</td>
+                <td>{{mag.updated_at}}</td>
+            {% endfor %}
+
+            {% for mag in magasinp %}
+                <td>{{mag.email}}</td>
+                <td>{{mag.phone}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+      </table>
+      {% endif%}
+    </div>
+</div>
+{%endblock%}

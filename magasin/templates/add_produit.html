@@ -1,0 +1,23 @@
+{% extends 'index.html'%}
+{% block 'title' %}
+Add Magasin
+{%endblock%}
+{% block 'css' %}
+<style type="text/css">
+
+</style>
+{%endblock%}
+{% block 'content' %}
+<div class="container mt-5">
+    <h1 class="text-center mb-5">AJOUTER PRODUIT</h1>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6">
+            <form action="" method="POST" novalidate>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock%}
